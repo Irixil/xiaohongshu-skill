@@ -1,0 +1,4 @@
+interface:
+  display_name: "小红书知识图解"
+  short_description: "分析多模态素材、提炼选题并制作统一风格的知识图解笔记"
+  default_prompt: "使用 $xiaohongshu-concept-explainer 分析我提供的素材，推荐最适合的选题，再策划并制作小红书知识图解笔记。"
