@@ -16,12 +16,22 @@ Use this profile when the user has not approved another direction. Treat it as a
 
 When the user changes the style, replace this profile explicitly and keep the rest of the system unchanged unless requested.
 
+## Series cohesion and project boundaries
+
+- At the start of a new project, analyze the current article, intended audience, and supplied visual references before choosing the art direction.
+- Keep character construction, linework, material, color logic, typography hierarchy, and layout language consistent throughout the current series.
+- Do not let later cards in the same series suddenly switch illustration style or rendering quality.
+- Treat the approved direction as series-specific. Do not force one project's palette, composition, character, or art style onto future projects.
+
 ## Canvas and grid
 
 - Use an exact 3:4 portrait canvas. Preferred working size: 1242 × 1656 px.
 - Keep a safe margin of 72–96 px on all sides.
 - Use a consistent underlying grid across the series, but vary image crops and module placement to serve the story.
-- Reserve clean text zones before placing illustrations. Never solve a crowded layout by shrinking explanatory text below legibility.
+- Avoid mechanical four-quadrant grids, perfect symmetry, evenly distributed elements, and a character fixed in the lower-left corner. Prefer asymmetric grids, directional visual flow, narrative movement, staggered negative space, and compositions with a clear sense of direction.
+- Place a character according to the current card's narrative function and reading path; do not repeat the same corner placement on every card.
+- When information density is high, establish a focal hierarchy, convergence, and visual grouping before positioning text. Do not fill the page by distributing elements evenly.
+- Reserve clean text zones before placing illustrations. Never solve a crowded layout by shrinking explanatory text below legibility, and never let an illustration cover primary information.
 - Use fine rules, brackets, small folio marks, or asymmetric columns as editorial structure, not decoration for its own sake.
 
 ## Typography hierarchy
