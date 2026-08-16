@@ -89,11 +89,13 @@ Ask for script approval when the user requested a staged workflow or when factua
 
 ### Gate 4 — Design and render
 
-Read [visual-system.md](references/visual-system.md) before designing. Render every card at an exact 3:4 portrait ratio, preferably 1242 × 1656 px or another exact multiple.
+Read [visual-system.md](references/visual-system.md) before designing. If the current project selects a snowy owl as its series character, also read and follow [snowy-owl-mascot.md](references/snowy-owl-mascot.md); do not treat the snowy owl as the default character for other projects. Render every card at an exact 3:4 portrait ratio, preferably 1242 × 1656 px or another exact multiple.
+
+Default to one formal version per card. Unless the user explicitly requests comparison drafts, an A/B test, or alternatives, revise the current version in place when a problem is found instead of generating additional candidates.
 
 Use AI image generation for illustrations or textures when helpful, but do not rely on generated pixels for Chinese typography. Generate or source the visual layer first, then typeset all important text deterministically with a renderer that preserves exact wording. Verify font licensing and Chinese glyph support before use.
 
-Treat the visual profile as replaceable. Lock the approved profile within one series, but allow the user to revise the default background, palette, texture, illustration treatment, grid, or line language for later series without changing the research and editorial workflow.
+Treat the visual profile as replaceable. At the start of each new project, analyze the current article and visual references instead of mechanically reusing the previous project's art direction. Within one series, lock the approved character design, linework, material, color system, typography hierarchy, and layout language. Allow later projects to choose a different background, palette, texture, illustration treatment, grid, composition, character, or line language without changing the research and editorial workflow.
 
 Before revising an approved card, classify the requested change as content, style, composition, typography, or a local element. Preserve every approved dimension outside that scope. In particular, do not redesign the visual system when the user asks only for a layout adjustment.
 
