@@ -5,12 +5,16 @@ Use this handoff when the current Codex task cannot access native image generati
 ## Handoff rules
 
 - Carry over the approved topic and script; do not reselect the topic.
-- Generate the visual layer separately from final long-form Chinese typesetting.
+- Deliver one formal version per card by default. Generate comparison drafts, A/B options, or alternatives only when the user explicitly requests them; otherwise revise the current version.
+- Before generation, specify the character's position, action, arms, clothing, props, and the text-safe area for every card.
+- Generate the visual layer separately from final long-form Chinese typesetting. Do not rely on the image model to render long Chinese passages; use deterministic typesetting for final Chinese copy.
 - Generate exact 3:4 portrait images, preferably 1242 × 1656 px.
 - Generate the cover first. Present a complete cover proof with the intended title and hierarchy for visual approval; do not call a bare background the cover unless the user requested only that layer.
 - If exact local typesetting is temporarily unavailable, clearly label model-rendered text as a composition prototype and return the background layer for later deterministic typesetting.
 - Keep each card's focal visual distinct while preserving paper texture, grid logic, illustration treatment, and color family.
 - Return files in reading order with zero-padded names, e.g. `01-cover.png` through `07-takeaway.png`.
+- When the selected series character is a clothed snowy owl, include this exact sentence in the generation prompt: “exactly two black stick-figure arms, no visible oval wings, clothing fully covers the torso, scarf stays outside the clothing, two short legs and grounded claws when standing.”
+- After generation, complete character-structure QA before adding Chinese typography.
 
 ## Copy-paste handoff template
 
