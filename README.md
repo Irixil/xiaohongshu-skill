@@ -11,9 +11,10 @@ This skill goes beyond simple summarization. It identifies the strongest publish
 - Cross-checks important facts with at least two reliable sources.
 - Plans the complete card sequence before rendering images.
 - Writes concise Chinese copy designed for fast mobile reading.
-- Produces one recommended title, two alternative titles, and a Xiaohongshu caption of no more than 200 Chinese characters.
+- Produces one recommended title, two alternative titles, and a Xiaohongshu caption of no more than 200 Chinese characters; preserves a source title verbatim when requested.
 - Maintains visual and character consistency across the entire series.
-- Separates AI-generated illustration from deterministic Chinese typography.
+- Uses a tactile owl editorial-collage style by default.
+- Generates each finished card with approved Chinese copy integrated in the same image-generation pass, then regenerates any failed card instead of applying a text overlay.
 - Runs full-size and thumbnail-size quality checks before delivery.
 - Learns from visual debugging without turning one-off corrections into permanent rules.
 
@@ -21,18 +22,18 @@ This skill goes beyond simple summarization. It identifies the strongest publish
 
 The following examples come from a seven-card Xiaohongshu knowledge-infographic series.
 
-The series uses a recurring snowy-owl character, editorial collage textures, deterministic Chinese typography, flexible narrative composition, and a consistent 3:4 portrait format.
+The current default series uses a recurring white-faced, yellow-eyed owl in a red scarf and army-green jacket, warm fiber paper, torn editorial collage, real desk objects, wine-red handwritten headlines, deep-blue pen annotations, flexible narrative composition, and a consistent 3:4 portrait format. All approved copy is generated inside the finished image.
 
 <table>
   <tr>
     <td width="33.33%" valign="top">
-      <img src="assets/examples/01-cover.jpg" alt="Xiaohongshu infographic cover about psychology app demand" width="100%" />
+      <img src="assets/default-style/01-cover-reference.jpg" alt="Default tactile owl collage cover" width="100%" />
     </td>
     <td width="33.33%" valign="top">
-      <img src="assets/examples/03-four-services.jpg" alt="Xiaohongshu infographic comparing four psychology services" width="100%" />
+      <img src="assets/default-style/04-list-reference.jpg" alt="Default tactile owl collage list card" width="100%" />
     </td>
     <td width="33.33%" valign="top">
-      <img src="assets/examples/07-tiered-service.jpg" alt="Xiaohongshu infographic showing a tiered psychology service path" width="100%" />
+      <img src="assets/default-style/07-checklist-reference.jpg" alt="Default tactile owl collage checklist card" width="100%" />
     </td>
   </tr>
   <tr>
@@ -104,37 +105,32 @@ This prevents temporary adjustments from becoming permanent global rules.
 ## Visual Production Principles
 
 - Use an exact **3:4 portrait ratio**.
-- The recommended canvas size is **1242 × 1656 px**.
-- Generate one formal candidate per card unless the user explicitly requests alternatives.
+- The recommended canvas size is **1242 × 1656 px**; native **1086 × 1448 px** output is also valid.
+- Generate one finished card per request unless the user explicitly requests alternatives.
 - Keep the approved style stable throughout one series.
-- Do not force one project’s art direction onto unrelated future projects.
+- Use the tactile owl editorial-collage profile as the stable default; replace it only when the user explicitly asks for another direction.
 - Prefer asymmetric grids, narrative flow, and purposeful negative space over rigid four-quadrant layouts.
 - Treat explanatory text as the primary content.
 - Illustration must never obstruct important text.
-- Do not rely on an image-generation model for important Chinese copy.
-- Render approved Chinese wording with a deterministic typesetting tool.
+- Generate all approved Chinese wording as part of the finished image; do not create a blank template and add copy afterward.
+- If wording, order, punctuation, or labels are wrong, regenerate only the affected card and preserve every accepted dimension.
 - Check whether the cover title remains readable at Xiaohongshu feed-thumbnail size.
 - Preserve recurring editorial labels consistently when required, such as `2026`, `RiXi`, `AI`, and a short topic label.
 
-## Optional Snowy-Owl Character System
+## Default Owl Editorial-Collage System
 
-The repository includes an optional snowy-owl mascot specification.
+The owl is the default recurring narrator and visual anchor, not an optional mascot layer.
 
-This character system is used only when a project explicitly selects the snowy owl. It is not the default art direction for every Xiaohongshu post.
+Its stable identity includes:
 
-The character rules cover:
+- white facial disks, brown-and-black speckled feathers, large yellow eyes, and a dark beak;
+- a textured red scarf and army-green work jacket;
+- a focused product-builder temperament rather than a cute children's mascot pose;
+- real documents, folders, notebooks, pens, coffee, computers, stamps, and other workbench props;
+- warm coarse-fiber paper, torn edges, physical shadows, wine-red hand lettering, and deep-blue pen marks;
+- flexible pose and placement while preserving the face, scarf, jacket, texture, and editorial character.
 
-- stable facial and species identity;
-- exactly two black stick-figure arms when performing actions;
-- no wings used as human hands;
-- clothing and scarf construction;
-- no oval wing shapes protruding through clothing;
-- visible short legs and grounded claws in full-body standing poses;
-- role-specific props and wardrobe;
-- flexible placement instead of repeatedly fixing the owl in the lower-left corner;
-- consistent appearance across all cards in the same series.
-
-See [`references/snowy-owl-mascot.md`](references/snowy-owl-mascot.md) for the complete specification.
+See [`references/visual-system.md`](references/visual-system.md) and the approved images under [`assets/default-style/`](assets/default-style/) for the complete specification.
 
 ## Example Prompt
 
@@ -148,8 +144,8 @@ After I confirm the topic:
 1. verify important facts with reliable sources;
 2. plan the complete card series;
 3. write the Chinese copy for every card;
-4. define a consistent visual system;
-5. produce a 3:4 Xiaohongshu infographic series;
+4. use the default tactile owl editorial-collage system unless I explicitly request another style;
+5. produce each 3:4 finished card with all approved Chinese copy integrated during image generation, never by adding text to a blank template afterward;
 6. inspect Chinese typography, visual continuity, factual accuracy, and thumbnail readability before delivery.
 
 Generate the cover first. Continue with the remaining cards only after the visual direction is confirmed.
@@ -178,8 +174,8 @@ A complete project may include:
 - a Xiaohongshu caption of no more than 200 Chinese characters;
 - a card-by-card content script;
 - a visual-direction specification;
-- illustration-generation prompts;
-- deterministic Chinese typography;
+- finished-card image-generation prompts containing the exact approved copy;
+- Chinese typography integrated during image generation;
 - a complete 3:4 image series;
 - a final QA report;
 - a structured web-debug feedback document when required.
@@ -193,14 +189,15 @@ xiaohongshu-skill/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
+│   ├── default-style/
+│   │   ├── 01-cover-reference.jpg
+│   │   ├── 04-list-reference.jpg
+│   │   └── 07-checklist-reference.jpg
 │   └── examples/
-│       ├── 01-cover.jpg
-│       ├── 03-four-services.jpg
-│       └── 07-tiered-service.jpg
+│       └── earlier project examples
 └── references/
     ├── image-handoff.md
     ├── qa-checklist.md
-    ├── snowy-owl-mascot.md
     ├── visual-system.md
     └── web-debug-feedback.md
 ```
@@ -239,7 +236,7 @@ This skill is optimized for Chinese-language Xiaohongshu knowledge posts, especi
 - It does not force a weak topic when the source material lacks a publishable angle.
 - It does not invent statistics, quotations, user feedback, or sources.
 - It does not treat an analogy as a formal definition.
-- It does not hard-code one palette, mascot, page count, or composition across unrelated projects.
+- It does not repeat one composition or page count across unrelated projects; the default visual identity stays stable while the information structure follows the content.
 - It does not treat reference images as templates to copy.
 - It does not allow illustration to interfere with explanatory text.
 - It does not claim image-generation capability when the active product environment does not provide that tool.
@@ -253,5 +250,4 @@ Additional references:
 - [`references/visual-system.md`](references/visual-system.md) — visual-system guidance;
 - [`references/qa-checklist.md`](references/qa-checklist.md) — final image-set quality checks;
 - [`references/image-handoff.md`](references/image-handoff.md) — illustration and typography handoff;
-- [`references/snowy-owl-mascot.md`](references/snowy-owl-mascot.md) — optional mascot specification;
 - [`references/web-debug-feedback.md`](references/web-debug-feedback.md) — classified feedback from visual debugging.

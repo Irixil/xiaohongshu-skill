@@ -18,6 +18,7 @@
 - The opening is interesting without clickbait or false certainty.
 - The definition is concise, accurate, and understandable without prior expertise.
 - The recommended title is strongest; two genuine alternatives are included.
+- When the user asked to preserve a source title, it is reproduced verbatim and no unwanted alternatives are added.
 - The body is no more than 200 Chinese characters including hashtags.
 
 ## Visual consistency
@@ -28,14 +29,17 @@
 - `2026`, `RiXi`, `AI`, and the topic-derived `{{关键词}}` appear consistently; the replacement contains no more than four displayed characters.
 - Visual variations serve the individual card's content.
 - The series follows the currently approved visual profile; older profile defaults were not carried forward after the user changed them.
+- Unless explicitly overridden, the series uses warm coarse-fiber paper, torn editorial collage, wine-red handwritten titles, deep-blue pen marks, muted olive/pale-blue/sand cards, real office props, and the consistent owl in an army-green jacket and red scarf.
 - Every flow, node, particle field, label, or decorative element has a content relationship or has been removed.
 - A layout-only revision preserves the approved visual style and untouched content.
 
 ## Legibility and rendering
 
 - All Chinese characters match the approved script exactly.
+- All required copy is integrated during image generation. No blank template was generated for later text overlay, and no failed text was repaired with an added text layer.
 - When OCR is available, OCR every final card and compare the result with the approved copy before manual inspection. Treat OCR as a warning system, not proof of correctness.
 - Manually inspect every headline, concept term, corner label, page number, punctuation mark, and small caption after OCR or when OCR is unavailable.
+- Reject extra readable labels, headings, or prop text that were not requested, unless they were explicitly approved as meaningful scene content.
 - No mojibake, invented glyphs, clipping, overflow, accidental line breaks, or punctuation errors exist.
 - Large subject glyphs retain standard structure and complete strokes; grain, blur, particles, and lines do not damage recognition.
 - Explanatory text remains the visual subject and does not overlap busy imagery.
@@ -49,3 +53,4 @@
 - Files sort in reading order with zero-padded names.
 - Title, body, image set, and source list are all delivered.
 - A final visual inspection has been performed on every exported file.
+- A failed card was regenerated in isolation; accepted cards were not regenerated or visually changed without a content reason.

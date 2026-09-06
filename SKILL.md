@@ -1,6 +1,6 @@
 ---
 name: xiaohongshu-concept-explainer
-description: Analyze mixed source material, select a strong beginner-friendly topic, research, plan, write, design, and quality-check Chinese Xiaohongshu knowledge-infographic posts with a unified editorial illustration style, a 3:4 vertical cover and card series, concise story-led explanations, title variants, and a body under 200 Chinese characters. Accept long text, notes, articles, keywords, files, screenshots, images, or combinations. Use when the user asks for 小红书选题分析、概念词解、知识片段、知识图解、概念科普、术语解释、图文笔记、知识卡片、封面及多图内容策划或出图。
+description: Analyze mixed source material, select a strong beginner-friendly topic, research, plan, write, design, and quality-check Chinese Xiaohongshu knowledge-infographic posts with a default tactile owl editorial-collage style, a 3:4 vertical cover and card series, concise story-led explanations, and a body under 200 Chinese characters. Accept long text, notes, articles, keywords, files, screenshots, images, or combinations. Use when the user asks for 小红书选题分析、概念词解、知识片段、知识图解、概念科普、术语解释、图文笔记、知识卡片、封面及多图内容策划或出图。
 ---
 
 # Xiaohongshu Concept Explainer
@@ -17,6 +17,7 @@ Treat the default audience as Chinese-speaking beginners who may be interested i
 
 1. Inventory every provided input: long text, note fragments, article excerpts, keywords, documents, screenshots, images, or mixed inputs.
 2. Use the appropriate reading, OCR, document, image-inspection, or extraction capability for each input. Preserve headings, captions, diagrams, highlighted passages, source metadata, and relationships between inputs when they affect meaning.
+   - When adapting the user's own article and asked to follow its illustration style, inspect the actual embedded or attached images rather than inferring the style from prose. Prefer the user's local export when a public page blocks access. Record the recurring background, palette, paper texture, character design, prop language, typography, annotation marks, shadows, and composition before prompting.
 3. Separate the material into:
    - central claims or concepts;
    - useful examples, tensions, and surprising facts;
@@ -85,15 +86,17 @@ Also deliver:
 - One post body of at most 200 Chinese characters, aligned with the cards and free of unverified claims.
 - Optional hashtags only when useful; count them within the 200-character limit.
 
+If the user asks to keep the source article title, preserve it verbatim as the only title. Do not manufacture alternatives or optimize it for clicks.
+
 Ask for script approval when the user requested a staged workflow or when factual nuance, tone, or visual interpretation could materially change the result.
 
 ### Gate 4 — Design and render
 
 Read [visual-system.md](references/visual-system.md) before designing. Render every card at an exact 3:4 portrait ratio, preferably 1242 × 1656 px or another exact multiple.
 
-Use AI image generation for illustrations or textures when helpful, but do not rely on generated pixels for Chinese typography. Generate or source the visual layer first, then typeset all important text deterministically with a renderer that preserves exact wording. Verify font licensing and Chinese glyph support before use.
+When native image generation is available, generate each finished card with its approved Chinese copy already integrated into the image. The text, paper pieces, handwriting, illustrations, props, and shadows must be composed in the same generation pass. Do not generate a blank template and add text afterward. If the image model renders required text incorrectly, regenerate the affected card instead of repairing it with an overlay. Use deterministic typesetting only when the user explicitly requests it or explicitly accepts it as a fallback.
 
-Treat the visual profile as replaceable. Lock the approved profile within one series, but allow the user to revise the default background, palette, texture, illustration treatment, grid, or line language for later series without changing the research and editorial workflow.
+Use the tactile owl editorial-collage profile in [visual-system.md](references/visual-system.md) as the stable default identity for future series. Lock it within a series. Replace it only when the user explicitly asks for a different visual direction; visual changes do not alter the research and editorial workflow.
 
 Before revising an approved card, classify the requested change as content, style, composition, typography, or a local element. Preserve every approved dimension outside that scope. In particular, do not redesign the visual system when the user asks only for a layout adjustment.
 
@@ -112,16 +115,18 @@ Treat image generation and local production as separate stages. A ChatGPT web/Ch
 
 When native image generation is available in the current surface:
 
-1. Generate visual layers without long Chinese copy, logos, invented labels, or watermarks, then add all approved Chinese text deterministically when the surface supports it.
-2. Generate the cover first and ask the user to approve the visual direction before generating the remaining cards. For visual review, show a complete cover proof with its intended typography; do not present a bare no-text background as the finished cover unless the user explicitly requests only a background layer.
-3. Keep the approved script, palette, crop, and visual constraints fixed across the set.
+1. Generate one finished card per request with every approved Chinese string quoted explicitly in the prompt. Ask for no extra readable labels, logos, or watermarks. The generated pixels are the final composition, including typography.
+2. Generate the cover first and ask the user to approve the visual direction before generating the remaining cards. Show the complete cover with its final copy, hierarchy, character, texture, and corner furniture.
+3. Keep the approved script, tactile owl collage profile, crop, and corner furniture fixed across the set. Vary only the scene and information structure needed by each card.
+4. Prefer sequential one-card generation for copy-heavy Chinese cards so a failure can be isolated and retried without destabilizing accepted cards.
+5. Inspect each result immediately. On a text, punctuation, order, or unwanted-label failure, retry only that card and explicitly preserve every accepted dimension. Do not repair it by laying new text over the image.
 
 When native image generation is unavailable:
 
 1. Continue the work up to a complete, approved script and visual brief; do not restart research.
-2. Prepare a handoff using [image-handoff.md](references/image-handoff.md), including the exact topic, card prompts, dimensions, avoid list, and a request to return the generated files.
+2. Prepare a handoff using [image-handoff.md](references/image-handoff.md), including the exact topic, card prompts, dimensions, avoid list, and the requirement to generate each finished card with all copy already inside the image.
 3. Tell the user to run the handoff in a surface that exposes image generation (usually a normal ChatGPT web/Chat conversation), then upload the resulting images back into the current task.
-4. Once images arrive, inspect them here, perform deterministic Chinese typesetting, and continue to Gate 5.
+4. Once images arrive, inspect them here and continue to Gate 5. If copy is wrong, return a card-specific regeneration prompt; do not silently switch to post-generation typesetting.
 
 Never claim that the skill itself can install or inject a missing native tool. A skill provides procedure; tool availability is controlled by the active product surface and task configuration.
 
@@ -131,7 +136,7 @@ Read [qa-checklist.md](references/qa-checklist.md). Inspect the rendered cards a
 
 Deliver in this order:
 
-1. Recommended title, then two alternatives
+1. Recommended title, then two alternatives unless the user asked to preserve one exact source title
 2. Body text with character count
 3. Final card list
 4. Clickable links or rendered previews for every image

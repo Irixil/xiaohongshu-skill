@@ -2,23 +2,36 @@
 
 ## Intent
 
-Translate the references into a reusable editorial system rather than copying one composition or palette. Separate stable structural rules from a replaceable visual profile: preserve legibility, hierarchy, grid discipline, corner furniture, and series consistency, while allowing the user to change background, palette, texture, imagery, and line language for later series.
+Use the approved tactile owl editorial collage as the skill's stable default identity. Preserve its physical paper character, recurring owl narrator, handwriting, annotation language, legibility, hierarchy, corner furniture, and series consistency. Do not copy one composition across every card: the scene and information structure should still follow each card's content.
 
 ## Current default profile
 
-Use this profile when the user has not approved another direction. Treat it as a preset, not a permanent identity:
+Use this profile for every new series unless the user explicitly requests another direction:
 
-- clean white or visually near-white background;
-- restrained editorial information design with quiet negative space;
-- black for raw inputs or questions, deep blue for structured results, and a small amount of warning orange for transitions or emphasis;
-- fine rules, directional flows, local halftone or print grain, and occasional tiny square pixels;
-- no neon technology aesthetic, cyberpunk, glowing robots, complex 3D interfaces, or stock-advertising polish.
+- warm off-white or light beige coarse-fiber paper, slightly aged but still clean enough for phone reading;
+- tactile scrapbook/editorial collage made from torn paper, clipped documents, taped notes, printed fragments, and real office objects with soft natural shadows;
+- deep wine-red rough handwritten display titles; dark charcoal or ink-black supporting copy; deep blue pen arrows, circles, underlines, check marks, and marginal notes;
+- olive green, pale blue, sand, kraft brown, and muted cream paper cards, with a restrained red accent from the character's scarf or key emphasis;
+- a recurring anthropomorphic owl as narrator or witness: white facial disks, brown-and-black speckled feathers, large yellow eyes, a dark beak, a textured red scarf, and an army-green work jacket; keep its recognizable face and clothing consistent while changing pose and task;
+- realistic photographic collage fused with hand-drawn editorial marks: tactile, calm, intelligent, slightly imperfect, and never glossy;
+- no flat vector infographic, neon technology aesthetic, cyberpunk, glowing robot, sterile corporate UI, glossy 3D render, plastic surface, stock-advertising polish, or gratuitous gradients.
 
-When the user changes the style, replace this profile explicitly and keep the rest of the system unchanged unless requested.
+When the user explicitly changes the style, replace this profile for that work and keep the rest of the system unchanged unless requested. Do not drift away from this default merely because a new topic suggests a generic technology aesthetic.
+
+## Approved visual references
+
+When image inspection is available, inspect these files before generating the first cover:
+
+- `../assets/default-style/01-cover-reference.jpg`
+- `../assets/default-style/04-list-reference.jpg`
+- `../assets/default-style/07-checklist-reference.jpg`
+
+Use them to lock the character, paper, palette, handwriting, object realism, shadow depth, and information density. Their topic-specific words and layouts are examples, not reusable copy or templates. If the assets are unavailable, follow the written profile in this file.
 
 ## Canvas and grid
 
 - Use an exact 3:4 portrait canvas. Preferred working size: 1242 × 1656 px.
+- Native generation at 1086 × 1448 px is also accepted because it is an exact 3:4 ratio.
 - Keep a safe margin of 72–96 px on all sides.
 - Use a consistent underlying grid across the series, but vary image crops and module placement to serve the story.
 - Reserve clean text zones before placing illustrations. Never solve a crowded layout by shrinking explanatory text below legibility.
@@ -35,32 +48,36 @@ Use no more than three text levels plus corner furniture:
 
 Use one Chinese display family and one highly legible Chinese text family at most. Allow an English serif or sans accent only when it adds editorial rhythm. Avoid fake bolding, condensed glyph distortion, excessive typefaces, and long vertical body copy.
 
+For native image generation, describe typography by visible character rather than by an unavailable font name: rough wine-red hand-lettered title, neat dark-ink supporting copy, and blue-pen annotation. Every required Chinese string must be supplied verbatim in the prompt and generated as part of the same image. Do not add a text layer afterward.
+
 ## Cover
 
 - Center the main title optically, not merely mathematically.
 - Enlarge and embolden the concept term and key promise.
 - Keep the title readable at feed-thumbnail size.
-- Use one supporting visual world or metaphor, not a collage of unrelated symbols.
+- Build one coherent desk, document, or project scene around the owl; collage elements must belong to that scene rather than becoming unrelated symbols.
 - Limit secondary copy. The cover should create curiosity without hiding what concept is being explained.
+- When the user asks to keep a source title, reproduce it verbatim even if it is longer than a typical Xiaohongshu headline; solve the hierarchy through line breaks and scale, not rewriting.
 
 ## Content cards
 
 - Let copy determine composition.
 - Assign one dominant reading path per card.
-- Use illustrations, archival-like cutouts, diagrams, objects, or landscapes to make the abstract concrete.
+- Use the owl's action, real desk objects, archival-like cutouts, documents, diagrams, and paper modules to make the abstract concrete.
 - Separate text from busy image regions using negative space, a quiet paper field, a solid block, or a clearly bounded module.
 - Use labels, arrows, brackets, and comparisons only when they explain a relationship.
-- Vary palette by topic while preserving paper texture, typographic hierarchy, grid logic, corner furniture, and illustration treatment.
+- Preserve the warm paper, wine-red, blue-ink, olive, pale-blue, and sand family across topics. Topic variation should come from the props, documents, scene, and information structure rather than abandoning the palette.
 - Define the semantic relationship before selecting a visual metaphor. For transformation stories, write the intended input, transformation, and output first; every line, node, particle, or label must correspond to that relationship.
 - Give directional flows a clear origin, destination, boundary, and convergence behavior. Avoid static text walls, random word clouds, fan-shaped radiation, or decorative particle fields when they do not encode meaning.
 - Convert rejected structures into positive constraints. For example, replace “not a fan shape” with “one bounded channel whose upper and lower banks progressively narrow toward a single inlet.”
 
 ## Color and texture
 
-- Start with the current approved profile; default to clean white rather than warm or yellowed paper until the user chooses otherwise.
-- Choose one topic-led main color, one supporting color, and one accent. Ensure accessible text contrast.
-- Add subtle print grain, brush, risograph, pencil, botanical plate, or collage texture. Keep texture away from small text.
-- Do not force the green palette from the references onto unrelated concepts.
+- Start with warm, coarse-fiber paper and the approved wine-red, deep-blue, olive, pale-blue, sand, kraft, and cream palette.
+- Use deep wine red primarily for display titles, deep blue for explanatory arrows and marks, dark ink for body copy, and the remaining muted colors for paper modules and props. Ensure accessible text contrast.
+- Make torn edges, fibers, tape, clipped paper, slight misregistration, and natural object shadows visible enough to feel physical, but keep texture away from small text.
+- Keep the owl's red scarf and army-green jacket stable as character anchors.
+- Prefer the clean cream-paper background and real wooden workbench seen in the approved references. Do not revert to a full-bleed saturated blue paper field.
 - Keep large subject glyphs standard, complete, and readable. Do not let grain, blur, particles, or flow lines erode their defining strokes.
 
 ## Fixed corner furniture
