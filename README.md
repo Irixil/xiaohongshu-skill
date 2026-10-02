@@ -2,6 +2,21 @@
 
 Turn articles, notes, screenshots, documents, keywords, and mixed source material into clear, research-backed Xiaohongshu knowledge infographics for Chinese-speaking beginners.
 
+Also supports publishing an **existing approved article as a Xiaohongshu long-form post**, without rewriting the source. The two modes are separate: long-form publishing does not inherit the knowledge-card topic-selection gates or 200-character caption limit.
+
+## 长文排版与发布
+
+直接说“用这个 Skill 把确认稿排成小红书长文”即可进入长文模式。
+
+- 确认稿只读，排版只修改派生文件，逐段核对文字与顺序。
+- 优先平台“写长文”与原生分页，正文插图就近插入。
+- 有完整标题的自制封面直接作为完整首图，不重复套平台标题块或裁切主体。
+- 按文章选择真实话题 Tag，检查活动的主题、形式、日期和资格，不硬蹭、不保证流量。
+- 如实处理原创声明与AI辅助标识，按本篇授权保存、交用户审核或提交发布。
+- 提交后在笔记管理核验，明确区分“审核中”和“已过审”。
+
+完整流程见 [references/longform-publishing.md](references/longform-publishing.md)。原有知识图解流程保持不变，下面的卡片数量、200字配文和固定角标只适用于知识图解模式。
+
 This skill goes beyond simple summarization. It identifies the strongest publishable angle, verifies important claims, builds a card-by-card narrative, defines a coherent visual system, and checks the final 3:4 image set before delivery.
 
 ## What It Does
@@ -247,6 +262,7 @@ For the complete operating procedure, see [`SKILL.md`](SKILL.md).
 
 Additional references:
 
+- [`references/longform-publishing.md`](references/longform-publishing.md) — confirmed article, native pagination, intact cover, tags, eligible activities, declarations, approval, and publication verification;
 - [`references/visual-system.md`](references/visual-system.md) — visual-system guidance;
 - [`references/qa-checklist.md`](references/qa-checklist.md) — final image-set quality checks;
 - [`references/image-handoff.md`](references/image-handoff.md) — illustration and typography handoff;

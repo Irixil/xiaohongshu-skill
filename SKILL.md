@@ -1,13 +1,28 @@
 ---
 name: xiaohongshu-concept-explainer
-description: Analyze mixed source material, select a strong beginner-friendly topic, research, plan, write, design, and quality-check Chinese Xiaohongshu knowledge-infographic posts with a default tactile owl editorial-collage style, a 3:4 vertical cover and card series, concise story-led explanations, and a body under 200 Chinese characters. Accept long text, notes, articles, keywords, files, screenshots, images, or combinations. Use when the user asks for 小红书选题分析、概念词解、知识片段、知识图解、概念科普、术语解释、图文笔记、知识卡片、封面及多图内容策划或出图。
+description: 制作小红书知识图解，或把已有确认文章完整排版成小红书长文并按授权发布。用于小红书选题、知识卡片、封面配图、长文排版、写长文入口、话题Tag、关联活动、保存草稿和发布核验。长文模式保留母稿，处理完整封面、原生分页、原创与AI声明及审核后发布；知识图解模式保留选题研究、3:4猫头鹰拼贴卡片与精简配文流程。
 ---
 
 # Xiaohongshu Concept Explainer
 
+## 先选择模式
+
+- **已有文章发长文**：用户说“把这篇发小红书”“排成长文”“保留全文加插图”，或继续已有长文草稿，先完整读取 [小红书长文排版与发布](references/longform-publishing.md)，直接走该流程。不得套用下方重新选题、至少四张知识卡片、200字配文、逐卡生成正文或固定角标的要求。
+- **知识图解制作**：用户要提炼概念、做科普卡片或文章转知识图解，走下方 Gate 0–5。仅提供长素材不等于要求全文发布，根据用户明确的交付形式选择。
+- **已有图文的发布操作**：内容已确认，仅需填话题、选活动、声明、保存或发布，读取长文发布参考中的“发布配文与话题 Tag”“关联活动”“声明、审核与发布”，不重做内容。
+- 更新本 Skill 时沿用 Gate 6。操作网站前加载本机可用的浏览器 Skill；当前环境优先 `ego-browser`。缺少浏览器能力时交付可上传素材，不声称已写入网站或发布。
+
+## 确认稿保护与发布权限
+
+- 用户确认或亲改的当前文字稿是唯一母稿。排版只改派生文件，不改标题、正文、标点、段落边界或顺序；HTML、平台旧稿、截图和历史备份都不能反向覆盖母稿。
+- 原文章标题、封面图内标题、发布表单的短标题是三个字段。缩短平台标题不等于获准改原文章标题。用户要求标题原样保留时不擅自优化；平台装不下就提出处理方案。
+- “排好给我看”只允许准备和保存草稿；“审核后再发”必须等本篇审核批准。明确“直接发布”才允许提交。安装或使用 Skill 不构成对未来笔记的长期发布授权。
+
+## 知识图解模式
+
 Turn raw, mixed-format material into an accurately researched and visually coherent Xiaohongshu knowledge post for AI-curious beginners. Select the topic before producing it; do not merely summarize everything the user provides.
 
-## Non-negotiable workflow
+### Non-negotiable workflow for knowledge cards
 
 Follow the gates in order. Do not generate final images before the topic and card plan are approved.
 
